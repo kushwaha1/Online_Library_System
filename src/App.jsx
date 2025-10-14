@@ -1,11 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
 
   return (
-    <>
-      <h1 className='text-amber-800 text-7xl'>Online Library</h1>
-    </>
+    <div className="min-h-screen">
+      <Navbar />
+      <Outlet />
+    </div>
   )
 }
 

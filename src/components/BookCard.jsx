@@ -3,46 +3,7 @@ import "./book.css"
 
 function BookCard({ book }) {
     return (
-        // <div className="w-full border-2 border-amber-950 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 cursor-pointer group">
-        //     <div className="relative flex items-center justify-center bg-gray-100 h-64 w-full overflow-hidden">
-        //         <img
-        //             src={book.image}
-        //             alt={book.title}
-        //             className="w-full h-64 object-fill group-hover:scale-105 transition-transform duration-300"
-        //         />
-        //         <span className="absolute top-2 left-2 bg-amber-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
-        //             {book.category_type}
-        //         </span>
-        //     </div>
-
-        //     <div className="p-4 flex flex-col gap-2">
-        //         <h2 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-amber-600 transition-colors duration-300 line-clamp-1">
-        //             {book.title}
-        //         </h2>
-        //         <p className="text-sm text-gray-600">by {book.author}</p>
-
-        //         <div className="flex items-center text-yellow-500 text-sm font-medium">
-        //             {"⭐".repeat(Math.round(book.rating))}
-        //             <span className="text-gray-500 ml-2">{book.rating.toFixed(1)}</span>
-        //         </div>
-
-        //         <p className="text-sm text-gray-700 mt-2 line-clamp-2">
-        //             {book.description}
-        //         </p>
-
-        //         <button className="relative w-full text-white py-3 font-bold text-sm rounded-xl shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_45px_rgba(251,191,36,0.8)] transition-shadow duration-300 overflow-hidden group bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-[length:200%_100%] animate-[flow_3s_ease-in-out_infinite]">
-        //             <span className="relative z-10 flex items-center justify-center gap-2">
-        //                 View Details
-        //                 <span className="inline-block group-hover:rotate-12 transition-transform duration-300">✨</span>
-        //             </span>
-        //             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/30"></div>
-        //             <div className="absolute inset-[2px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent"></div>
-        //             <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
-        //         </button>
-        //     </div>
-        // </div>
-
-        <div className="relative w-full">
+        <section className="relative w-full">
             {/* Reduced glow ring opacity */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-500"></div>
             
@@ -114,7 +75,7 @@ function BookCard({ book }) {
                 {/* Bottom accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-        </div>
+        </section>
     )
 }
 

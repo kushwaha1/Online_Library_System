@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { Home, Library, BookPlus } from 'lucide-react';
 import logo from '../../assets/Logo.png';
 import "./Navbar.css";
 
@@ -20,16 +21,19 @@ function Navbar() {
                     <div className="hidden md:flex gap-12">
                         <Link to="/">
                             <span className={location.pathname === '/' ? 'navs active' : 'navs'}>
+                                <Home className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                 Home
                             </span>
                         </Link>
                         <Link to="/browseBooks">
                             <span className={location.pathname === '/browseBooks' ? 'navs active' : 'navs'}>
+                                <Library className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                 Browse Books
                             </span>
                         </Link>
                         <Link to="/addBooks">
                             <span className={location.pathname === '/addBooks' ? 'navs active' : 'navs'}>
+                                <BookPlus className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                 Add Book
                             </span>
                         </Link>
@@ -49,19 +53,22 @@ function Navbar() {
                 {/* Mobile Menu */}
                 {isOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
-                        <div className="flex flex-col gap-4 px-8 py-6">
+                        <div className="flex flex-col lg:gap-4 md:gap-4 gap-6 px-8 py-6">
                             <Link to="/" onClick={() => setIsOpen(false)}>
                                 <span className={location.pathname === '/' ? 'navs active' : 'navs'}>
+                                    <Home className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                     Home
                                 </span>
                             </Link>
                             <Link to="/books/all" onClick={() => setIsOpen(false)}>
                                 <span className={location.pathname === '/books/all' ? 'navs active' : 'navs'}>
+                                    <Library className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                     Browse Books
                                 </span>
                             </Link>
                             <Link to="/add" onClick={() => setIsOpen(false)}>
                                 <span className={location.pathname === '/add' ? 'navs active' : 'navs'}>
+                                    <BookPlus className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                     Add Book
                                 </span>
                             </Link>

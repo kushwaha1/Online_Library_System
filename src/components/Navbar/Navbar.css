@@ -17,10 +17,20 @@
 
 .navs:hover {
     color: rgb(217, 119, 6);
-    border-bottom: 3px solid rgb(217, 119, 6);
 }
 
 .navs.active {
-    color: rgb(217, 119, 6);
-    border-bottom: 3px solid rgb(217, 119, 6);
+    color: white;
+    background-color: brown;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .navs.active {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: left;
+    }
 }

@@ -1,23 +1,73 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/Logo.png';
 import "./Navbar.css";
 
 function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
     return (
         <div>
-            <header className="w-full px-18 py-2 flex justify-between items-center bg-transparent backdrop-blur-md fixed top-0 left-0 z-50">
+            <header className="w-full px-4 py-2 flex justify-between items-center bg-transparent backdrop-blur-md fixed top-0 left-0 z-50">
                 <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
                     <div className="flex gap-2 justify-center items-center">
                         <img src={logo} alt="Logo" width="50" height="40" />
                         <span className='logo'>Library</span>
                     </div>
-                    <div className="flex gap-12">
-                        <Link to="/"><span className='navs'>Home</span></Link>
-                        <Link to="/books/all"><span className='navs'>Browse Books</span></Link>
-                        <Link to="/add"><span className='navs'>Add Book</span></Link>
+                    
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex gap-12">
+                        <Link to="/">
+                            <span className={location.pathname === '/' ? 'navs active' : 'navs'}>
+                                Home
+                            </span>
+                        </Link>
+                        <Link to="/browseBooks">
+                            <span className={location.pathname === '/browseBooks' ? 'navs active' : 'navs'}>
+                                Browse Books
+                            </span>
+                        </Link>
+                        <Link to="/addBooks">
+                            <span className={location.pathname === '/addBooks' ? 'navs active' : 'navs'}>
+                                Add Book
+                            </span>
+                        </Link>
                     </div>
+
+                    {/* Hamburger */}
+                    <button 
+                        className="md:hidden flex flex-col gap-1.5"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <span className={`block w-6 h-0.5 bg-black transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                        <span className={`block w-6 h-0.5 bg-black transition-all ${isOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`block w-6 h-0.5 bg-black transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                    </button>
                 </nav>
+
+                {/* Mobile Menu */}
+                {isOpen && (
+                    <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                        <div className="flex flex-col gap-4 px-8 py-6">
+                            <Link to="/" onClick={() => setIsOpen(false)}>
+                                <span className={location.pathname === '/' ? 'navs active' : 'navs'}>
+                                    Home
+                                </span>
+                            </Link>
+                            <Link to="/books/all" onClick={() => setIsOpen(false)}>
+                                <span className={location.pathname === '/books/all' ? 'navs active' : 'navs'}>
+                                    Browse Books
+                                </span>
+                            </Link>
+                            <Link to="/add" onClick={() => setIsOpen(false)}>
+                                <span className={location.pathname === '/add' ? 'navs active' : 'navs'}>
+                                    Add Book
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </header>
         </div>
     )

@@ -9,8 +9,18 @@
 .navs {
     font-size: 18px;
     font-weight: 800;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    color: brown;
 }
 
 .navs:hover {
-    color: brown;
+    color: rgb(217, 119, 6);
+    border-bottom: 3px solid rgb(217, 119, 6);
+}
+
+.navs.active {
+    color: rgb(217, 119, 6);
+    border-bottom: 3px solid rgb(217, 119, 6);
 }

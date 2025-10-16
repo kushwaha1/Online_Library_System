@@ -1,5 +1,6 @@
 import React from 'react'
-import "./book.css"
+import "./BookCard.css"
+import { Link } from 'lucide-react'
 
 function BookCard({ book }) {
     return (
@@ -64,15 +65,17 @@ function BookCard({ book }) {
                     </p>
 
                     {/* Premium button */}
-                    <button className="relative mt-3 w-full text-white py-3 font-bold text-sm rounded-xl shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_45px_rgba(251,191,36,0.8)] transition-shadow duration-300 overflow-hidden group/btn bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-[length:200%_100%] animate-[flow_3s_ease-in-out_infinite]">
-                        <span className="relative z-10 flex items-center justify-center gap-2">
-                            View Details
-                            <span className="inline-block group-hover/btn:rotate-12 transition-transform duration-300">✨</span>
-                        </span>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/30"></div>
-                        <div className="absolute inset-[2px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent"></div>
-                        <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 group-hover/btn:left-full transition-all duration-1000"></div>
-                    </button>
+                    {/* <Link to={`/book/${book.id}`}> */}
+                        <button className="relative mt-3 w-full text-white py-3 font-bold text-sm rounded-xl shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_45px_rgba(251,191,36,0.8)] transition-shadow duration-300 overflow-hidden group/btn bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-[length:200%_100%] animate-[flow_3s_ease-in-out_infinite]">
+                            <span className="relative z-10 flex items-center justify-center gap-2">
+                                View Details
+                                <span className="inline-block group-hover/btn:rotate-12 transition-transform duration-300">✨</span>
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/30"></div>
+                            <div className="absolute inset-[2px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent"></div>
+                            <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 group-hover/btn:left-full transition-all duration-1000"></div>
+                        </button>
+                    {/* </Link> */}
                 </div>
                 
                 {/* Bottom accent line */}

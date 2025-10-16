@@ -25,8 +25,8 @@ function Navbar() {
                                 Home
                             </span>
                         </Link>
-                        <Link to="/books">
-                            <span className={location.pathname === '/books' ? 'navs active' : 'navs'}>
+                        <Link to="/browse-books">
+                            <span className={location.pathname === '/browse-books' ? 'navs active' : 'navs'}>
                                 <Library className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                 Browse Books
                             </span>
@@ -60,8 +60,8 @@ function Navbar() {
                                     Home
                                 </span>
                             </Link>
-                            <Link to="/books" onClick={() => setIsOpen(false)}>
-                                <span className={location.pathname === '/books' ? 'navs active' : 'navs'}>
+                            <Link to="/browse-books" onClick={() => setIsOpen(false)}>
+                                <span className={location.pathname === '/browse-books' ? 'navs active' : 'navs'}>
                                     <Library className="inline-block w-5 h-5 mr-2 mb-0.5" />
                                     Browse Books
                                 </span>

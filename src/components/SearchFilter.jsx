@@ -14,7 +14,7 @@ function SearchFilter({ handleText }) {
   }, [inputValue, handleText]);
 
   return (
-    <div className="flex items-center justify-center mt-4">
+    <div className="flex items-center justify-center mt-4 mb-8">
       <div className="relative w-full md:w-3/4">
         <input
           type="text"

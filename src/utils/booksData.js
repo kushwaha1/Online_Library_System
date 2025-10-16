@@ -91,22 +91,22 @@ export const booksData = [
     description: "Detective Rob Ryan investigates a murder in his hometown, uncovering buried secrets.",
     rating: 4.4
   },
-  {
-    id: uuidv4(),
-    author: "Chimamanda Ngozi Adichie",
-    title: "Americanah",
-    category_type: "Fiction",
-    image: "https://images.penguinrandomhouse.com/cover/9780307455925",
-    description: "A story of love, race, and identity spanning Nigeria and the United States.",
-    rating: 4.6
-  },
-  {
-    id: uuidv4(),
-    author: "Malcolm Gladwell",
-    title: "Outliers",
-    category_type: "Non-Fiction",
-    image: "https://images.penguinrandomhouse.com/cover/9780316017930",
-    description: "Analyzes the factors that contribute to high levels of success.",
-    rating: 4.5
-  }
+  // {
+  //   id: uuidv4(),
+  //   author: "Chimamanda Ngozi Adichie",
+  //   title: "Americanah",
+  //   category_type: "Fiction",
+  //   image: "https://images.penguinrandomhouse.com/cover/9780307455925",
+  //   description: "A story of love, race, and identity spanning Nigeria and the United States.",
+  //   rating: 4.6
+  // },
+  // {
+  //   id: uuidv4(),
+  //   author: "Malcolm Gladwell",
+  //   title: "Outliers",
+  //   category_type: "Non-Fiction",
+  //   image: "https://images.penguinrandomhouse.com/cover/9780316017930",
+  //   description: "Analyzes the factors that contribute to high levels of success.",
+  //   rating: 4.5
+  // }
 ]

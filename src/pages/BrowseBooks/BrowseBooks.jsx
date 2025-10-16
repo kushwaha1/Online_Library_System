@@ -5,7 +5,7 @@ import BookList from '../../components/BookList';
 
 function BrowseBooks() {
   const [selectedCategory, setSelectedCategory] = useState('All');
- const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState('');
 
   return (
     <div>

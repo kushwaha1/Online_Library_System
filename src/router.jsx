@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./pages/Home/Home";
 import BrowseBooks from "./pages/BrowseBooks/BrowseBooks";
 import BookPage from "./components/BookPage";
+import AddBook from "./pages/AddBook/AddBook";
 
 const appRouter = createBrowserRouter([
     {
@@ -14,13 +15,17 @@ const appRouter = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: 'browse-books',
+                path: '/browse-books',
                 element: <BrowseBooks />
             },
             {
                 path: '/books/:category',
                 element: <BookPage />
             },
+            {
+                path: '/add-book',
+                element: <AddBook />
+            }
         ]
     }
 ])

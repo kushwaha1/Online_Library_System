@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import BookCard from './BookCard/BookCard';
 import { booksData } from '../utils/booksData';
+import { useSelector } from 'react-redux';
 
 function BookList({ title, searchText, selectedCategory: propCategory }) {
   const { category: routeCategory } = useParams();
   const [filteredBooks, setFilteredBooks] = useState(booksData);
+  const reduxBooks = useSelector((state) => state.book) || []; // Redux books
 
   const selectedCategory = propCategory || routeCategory || 'All';
 
   useEffect(() => {
-    let books = booksData;
+    let books = reduxBooks;
 
     // Filter by category
     if (selectedCategory && selectedCategory.toLowerCase() !== 'all') {
@@ -28,7 +30,7 @@ function BookList({ title, searchText, selectedCategory: propCategory }) {
     }
 
     setFilteredBooks(books);
-  }, [selectedCategory, searchText]);
+  }, [reduxBooks, selectedCategory, searchText]);
 
   return (
     <div>

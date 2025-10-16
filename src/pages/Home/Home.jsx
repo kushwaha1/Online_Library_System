@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import home_banner from "../../assets/home-banner.png";
 import "./Home.css";
 import BookList from '../../components/BookList';
 import Categories from '../../components/Categories';
 
 function Home() {
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const bookSectionRef = useRef(null);
+
+    const handleExploreClick = () => {
+        if (bookSectionRef.current) {
+            bookSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className='relative bg-gradient-to-r from-amber-100 to-yellow-50'>
             <section id="home"
@@ -26,7 +35,10 @@ function Home() {
                     <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
                         Discover books, explore different genres, and read anywhere — anytime.
                     </p>
-                    <button className="mt-4 sm:mt-6 bg-amber-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-lg sm:text-xl font-semibold hover:bg-amber-700 transition btn-glow">
+                    <button 
+                        onClick={handleExploreClick}
+                        className="mt-4 sm:mt-6 bg-amber-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-lg sm:text-xl font-semibold hover:bg-amber-700 transition btn-glow"
+                    >
                         Explore Now
                     </button>
                 </div>
@@ -42,11 +54,10 @@ function Home() {
             </section>
 
             {/* 🏷️ White background below */}
-            <section className="bg-white min-h-screen py-12 sm:py-16">
+            <section ref={bookSectionRef} className="bg-white min-h-screen py-12 sm:py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <Categories onSelect={(cat) => console.log(cat)} />
-                    {/* Add more white background content here */}
-                    <BookList />
+                    <Categories onSelect={setSelectedCategory} />
+                    <BookList selectedCategory={selectedCategory}/>
                 </div>
             </section>
 

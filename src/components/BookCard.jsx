@@ -20,6 +20,9 @@ function BookCard({ book }) {
                         className="w-full h-64 object-fill group-hover:scale-105 transition-transform duration-500"
                     />
                     
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-black/30"></div>
+                    
                     {/* Category badge */}
                     <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                         {book.category_type}

@@ -384,16 +384,16 @@ const AddBooks = () => {
 
                     {/* Validation Note Section */}
                     <section id="note">
-                        <div className="note text-sm text-yellow-800 bg-yellow-50 rounded-lg p-4 mt-4 space-y-1 border border-amber-300">
+                        <div className="note text-sm text-yellow-800 bg-yellow-50 rounded-lg p-4 mt-4 space-y-1 border border-yellow-300">
                             <p><strong>Applied Validation Rules:</strong></p>
-                            <p>• <strong>Title:</strong> Required, min 2 chars.</p>
-                            <p>• <strong>Author:</strong> Required, min 2 chars.</p>
-                            <p>• <strong>Duplicate Check:</strong> No same title & author allowed.</p>
-                            <p>• <strong>Category:</strong> Required dropdown selection.</p>
-                            <p>• <strong>Rating:</strong> 1 to 5.</p>
-                            <p>• <strong>Image:</strong> JPG/JPEG/PNG, max 3 MB.</p>
-                            <p>• <strong>Description:</strong> Minimum 10 characters.</p>
-                            <p className="mt-2 text-xs text-yellow-700"><em>All fields validated on change & blur. Empty/whitespace-only values not accepted.</em></p>
+                            <p>• <strong>Title:</strong> Required field, minimum 2 characters. No string type validation (allows letters, numbers, special characters) as real-world book titles can contain numbers (e.g., "2001: A Space Odyssey") and special characters.</p>
+                            <p>• <strong>Author:</strong> Required field, minimum 2 characters. No string type validation (allows letters, numbers, special characters, spaces) as real-world author names can include dots (Dr. A.P.J. Abdul Kalam), hyphens (Jean-Paul Sartre), apostrophes (Conan O'Brien), and other special characters.</p>
+                            <p>• <strong>Duplicate Check:</strong> Books with the same title AND author combination are not allowed. Same title with different author is permitted as they are different books.</p>
+                            <p>• <strong>Category:</strong> Required field, must select a valid category from dropdown.</p>
+                            <p>• <strong>Rating:</strong> Required field, must be a number between 1 to 5.</p>
+                            <p>• <strong>Image:</strong> Required field, must be JPG, JPEG or PNG format only, maximum file size 3 MB.</p>
+                            <p>• <strong>Description:</strong> Required field, minimum 10 characters to ensure meaningful content.</p>
+                            <p className="mt-2 text-xs text-yellow-700"><em>Note: All fields are validated on change and on blur for better user experience. Empty/whitespace-only values are not accepted.</em></p>
                         </div>
                     </section>
 
@@ -402,7 +402,7 @@ const AddBooks = () => {
                         <button
                             type="submit"
                             disabled={submitting}
-                            className="px-6 py-2 rounded-xl bg-gradient-to-r from-amber-700 to-amber-500 text-white font-semibold shadow-lg transform hover:-translate-y-0.5 hover:shadow-amber-300/40 transition-all"
+                            className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-700 to-amber-500 text-white font-semibold shadow-lg transform hover:-translate-y-0.5 hover:shadow-amber-300/40 transition-all"
                         >
                             {submitting ? "Adding..." : "Add Book"}
                         </button>

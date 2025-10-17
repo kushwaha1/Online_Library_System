@@ -28,7 +28,7 @@ function Navbar() {
                     
                     {/* ---------------- Desktop Menu ---------------- */}
                     {/* Hidden on small screens (md:hidden) */}
-                    <div className="hidden md:flex gap-12">
+                    <div className="hidden lg:flex gap-12">
                         <Link to="/">
                             <span className={location.pathname === '/' ? 'navs active' : 'navs'}>
                                 <Home className="inline-block w-5 h-5 mr-2 mb-0.5" />
@@ -51,7 +51,7 @@ function Navbar() {
 
                     {/* ---------------- Hamburger Menu (Mobile) ---------------- */}
                     <button 
-                        className="md:hidden flex flex-col gap-1.5"
+                        className="lg:hidden flex flex-col gap-1.5"
                         onClick={() => setIsOpen(!isOpen)} // Toggle mobile menu
                     >
                         {/* Hamburger lines with animation on toggle */}
@@ -64,7 +64,7 @@ function Navbar() {
                 {/* ---------------- Mobile Menu Items ---------------- */}
                 {/* Visible only when hamburger is clicked */}
                 {isOpen && (
-                    <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                    <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg">
                         <div className="flex flex-col lg:gap-4 md:gap-4 gap-6 px-8 py-6">
                             {/* Close menu when a link is clicked */}
                             <Link to="/" onClick={() => setIsOpen(false)}>

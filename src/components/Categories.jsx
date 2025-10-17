@@ -38,7 +38,7 @@ function Categories({ onSelect }) {
       </h2>
 
       {/* Category Buttons */}
-      <section className='flex flex-wrap justify-center items-center gap-3 mt-4 mb-8 overflow-x-auto whitespace-nowrap'>
+      <section className='w-full flex flex-wrap justify-center items-center gap-6 mt-4 mb-8 overflow-x-auto whitespace-nowrap'>
         {categories.map((item) => (
           <button
             key={item.id}

@@ -19,7 +19,7 @@ function SearchFilter({ handleText }) {
   return (
     <div className="flex items-center justify-center mt-4 mb-8">
       {/* Container for input field */}
-      <div className="relative w-full md:w-3/4">
+      <div className="relative w-full lg:w-7/8">
         
         {/* Search input */}
         <input

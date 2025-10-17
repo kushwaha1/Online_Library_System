@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 
 const BookPage = () => {
     // Get category from the URL (e.g., /books/:category)
-    const { category } = useParams(); 
+    const { category } = useParams();
 
     // Get all books from Redux store
     const bookData = useSelector(state => state.book);
@@ -31,28 +31,29 @@ const BookPage = () => {
     }, [category, bookData]);
 
     return (
-        <div className='py-12 px-6'>
-            <section className='w-full max-w-7xl mx-auto pt-32 pb-16 px-4 sm:px-8 md:px-12 lg:px-18'>
+        <div className='pt-28 pb-16 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20'>
+            <section className='w-full max-w-7xl mx-auto'>
 
                 {/* Page Heading */}
-                <h2 className='text-center text-4xl sm:text-4xl font-extrabold bg-clip-text text-amber-950 drop-shadow-md'>
+                <h2 style={{ scrollMarginTop: '7rem' }}
+                    className='text-center text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold bg-clip-text text-amber-950 drop-shadow-md break-words'>
                     Books on {category || 'All'}
                 </h2>
 
                 {/* Back Button to navigate to Browse Books */}
                 <button
-                    className="flex items-center gap-2 mb-6 cursor-pointer text-amber-600 font-semibold hover:text-amber-700 transition-transform hover:-translate-x-1"
+                    className="flex items-center gap-2 mt-4 sm:mt-6 mb-6 cursor-pointer text-amber-600 font-semibold hover:text-amber-700 transition-transform hover:-translate-x-1"
                     onClick={() => navigate('/browse-books')}
                 >
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white shadow hover:shadow-md transition-shadow">
+                    <span className="inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white shadow hover:shadow-md transition-shadow">
                         <ArrowLeft size={20} strokeWidth={2.2} />
                     </span>
-                    <span className="text-sm">Back</span>
+                    <span className="text-sm sm:text-base">Back</span>
                 </button>
 
                 {/* Grid of Book Cards */}
-                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                    
+                <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+
                     {/* Render each filtered book using BookCard component */}
                     {filteredBook.map(book => (
                         <BookCard key={book.id} book={book} />
@@ -60,7 +61,7 @@ const BookPage = () => {
 
                     {/* Show message if no books found */}
                     {filteredBook.length === 0 && (
-                        <p className="text-center col-span-full text-amber-800 font-semibold mt-4">
+                        <p className="text-center col-span-full text-amber-800 font-semibold mt-4 text-sm sm:text-base">
                             No books found!
                         </p>
                     )}

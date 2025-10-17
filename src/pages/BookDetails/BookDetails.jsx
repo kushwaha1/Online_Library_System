@@ -16,7 +16,7 @@ export default function BookDetails() {
     <div className="bg-gray-50 py-12 px-6">
 
       {/* Main Section Container */}
-      <section className="w-full max-w-7xl mx-auto pt-16 sm:px-8 md:px-12 lg:px-18">
+      <section className="w-full max-w-7xl mx-auto pt-16 sm:px-8 md:px-2 lg:px-18">
         <h2 className='text-center text-4xl sm:text-5xl font-extrabold bg-clip-text text-amber-950 drop-shadow-md pb-6'>
           Book Details
         </h2>
@@ -33,7 +33,7 @@ export default function BookDetails() {
         </button>
 
         {/* Book Details Card */}
-        <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-start animate-fade-in">
+        <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden p-6 md:p-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-start animate-fade-in">
 
           {/* Left Column: Book Image */}
           <div className="md:col-span-1 flex items-center justify-center transform transition-transform hover:scale-105">
@@ -89,7 +89,7 @@ export default function BookDetails() {
 
       {/* "See Others" Section: Displays other books */}
       <div className="mt-10 animate-fade-in delay-500">
-        <BookList title={'See other books...'} />
+        <BookList title={'See other books'} />
       </div>
     </div>
   )

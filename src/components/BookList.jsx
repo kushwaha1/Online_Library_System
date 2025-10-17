@@ -45,8 +45,8 @@ function BookList({ title, searchText, selectedCategory: propCategory }) {
   return (
     <div>
       {/* Header section with title and optional "View more" button */}
-      <div className='flex lg:flex-row md:flex-col flex-col justify-between items-center px-18'>
-        <h2 className='font-medium text-3xl text-[#A52A2A] my-2'>
+      <div className='flex lg:flex-row md:flex-col flex-col justify-between items-center px-4 sm:px-4 md:px-10 lg:px-18'>
+        <h2 className='font-bold text-3xl text-[#A52A2A] my-2'>
           {title ? title : 'Popular Books...'}
         </h2>
 

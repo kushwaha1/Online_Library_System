@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addBook } from "../../utils/bookSlice";
 import { v4 as uuidv4 } from "uuid";
 import { categories } from "../../utils/categories";
+import { ChevronDown } from "lucide-react";
 
 const AddBooks = () => {
     // individual field errors
@@ -246,7 +247,7 @@ const AddBooks = () => {
                                 onChange={handleChange}
                                 onBlur={(e) => validateTitle(e.target.value)}
                                 placeholder="Enter book title"
-                                className={`w-full h-11 px-3 border rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${titleError ? "border-red-400" : ""
+                                className={`w-full h-11 px-3 border border-amber-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${titleError ? "border-red-400" : ""
                                     }`}
                             />
                             {titleError && <p className="text-red-500 text-sm mt-1">{titleError}</p>}
@@ -264,7 +265,7 @@ const AddBooks = () => {
                                 onChange={handleChange}
                                 onBlur={(e) => validateAuthor(e.target.value)}
                                 placeholder="Enter author name"
-                                className={`w-full h-11 px-3 border rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${authorError ? "border-red-400" : ""
+                                className={`w-full h-11 px-3 border border-amber-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${authorError ? "border-red-400" : ""
                                     }`}
                             />
                             {authorError && <p className="text-red-500 text-sm mt-1">{authorError}</p>}
@@ -284,21 +285,35 @@ const AddBooks = () => {
                             <label className="block text-sm font-semibold mb-2 text-amber-700">
                                 Category <span className="text-red-500">*</span>
                             </label>
-                            <select
-                                name="category_type"
-                                value={bookData.category_type}
-                                onChange={handleChange}
-                                onBlur={(e) => validateCategory(e.target.value)}
-                                className={`w-full h-11 px-3 border rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm bg-white ${categoryError ? "border-red-400" : ""
-                                    }`}
-                            >
-                                <option value="">Select category</option>
-                                {visibleCategories.map((cat) => (
-                                    <option key={cat.id} value={cat.category}>
-                                        {cat.category}
+
+                            <div className="relative">
+                                <select
+                                    name="category_type"
+                                    value={bookData.category_type}
+                                    onChange={handleChange}
+                                    onBlur={(e) => validateCategory(e.target.value)}
+                                    className={`w-full h-11 px-3 pr-10 border border-amber-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm bg-amber-50 text-amber-800 appearance-none cursor-pointer ${categoryError ? "border-red-400" : ""}`}
+                                >
+                                    <option value="" disabled hidden>
+                                        Select category
                                     </option>
-                                ))}
-                            </select>
+                                    {visibleCategories.map((cat) => (
+                                        <option
+                                            key={cat.id}
+                                            value={cat.category}
+                                            className="bg-amber-100 text-amber-800 hover:bg-amber-200"
+                                        >
+                                            {cat.category}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                {/* Arrow */}
+                                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                                    <ChevronDown size={20} className="text-amber-700" />
+                                </div>
+                            </div>
+
                             {categoryError && <p className="text-red-500 text-sm mt-1">{categoryError}</p>}
                         </div>
 
@@ -313,7 +328,7 @@ const AddBooks = () => {
                                 onChange={handleChange}
                                 onBlur={(e) => validateRating(e.target.value)}
                                 placeholder="Enter rating (1-5)"
-                                className={`w-full h-11 px-3 border rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${ratingError ? "border-red-400" : ""}`}
+                                className={`w-full h-11 px-3 border border-amber-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${ratingError ? "border-red-400" : ""}`}
                             />
                             {ratingError && <p className="text-red-500 text-sm mt-1">{ratingError}</p>}
                         </div>
@@ -326,7 +341,7 @@ const AddBooks = () => {
                             Upload Image <span className="text-red-500">*</span>
                         </label>
 
-                        <label className={`flex items-center justify-center w-full h-11 border-2 border-dashed rounded-lg cursor-pointer hover:border-amber-500 transition ${imageError ? "border-red-400" : ""
+                        <label className={`flex items-center justify-center w-full h-11 border-2 border-dashed border-amber-300 rounded-lg cursor-pointer hover:border-amber-500 transition ${imageError ? "border-red-400" : ""
                             }`}>
                             <span className="text-sm text-gray-500">
                                 {bookData.image ? bookData.image.name : "Choose file (JPG, JPEG, PNG)"}
@@ -336,7 +351,7 @@ const AddBooks = () => {
                                 name="image"
                                 accept=".jpg,.jpeg,.png"
                                 onChange={handleChange}
-                                className="hidden"
+                                className="hidden "
                             />
                         </label>
                         {imageError && <p className="text-red-500 text-sm mt-1">{imageError}</p>}
@@ -354,7 +369,7 @@ const AddBooks = () => {
                             onBlur={(e) => validateDescription(e.target.value)}
                             placeholder="Write a short description"
                             rows="4"
-                            className={`w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${descriptionError ? "border-red-400" : ""
+                            className={`w-full p-3 border border-amber-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all shadow-sm ${descriptionError ? "border-red-400" : ""
                                 }`}
                         />
                         {descriptionError && <p className="text-red-500 text-sm mt-1">{descriptionError}</p>}
@@ -365,7 +380,7 @@ const AddBooks = () => {
                     )}
 
                     <section id="note">
-                        <div className="note text-sm text-yellow-800 bg-yellow-50 rounded-lg p-4 mt-4 space-y-1 border border-yellow-300">
+                        <div className="note text-sm text-yellow-800 bg-yellow-50 rounded-lg p-4 mt-4 space-y-1 border border-amber-300">
                             <p><strong>Applied Validation Rules:</strong></p>
                             <p>• <strong>Title:</strong> Required field, minimum 2 characters. No string type validation (allows letters, numbers, special characters) as real-world book titles can contain numbers (e.g., "2001: A Space Odyssey") and special characters.</p>
                             <p>• <strong>Author:</strong> Required field, minimum 2 characters. No string type validation (allows letters, numbers, special characters, spaces) as real-world author names can include dots (Dr. A.P.J. Abdul Kalam), hyphens (Jean-Paul Sartre), apostrophes (Conan O'Brien), and other special characters.</p>

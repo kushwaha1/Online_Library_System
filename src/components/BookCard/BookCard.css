@@ -1,9 +1,21 @@
+/* Flow animation for background gradients (used in buttons) */
+/* Moves the background from left to right smoothly */
 @keyframes flow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%, 100% { 
+        background-position: 0% 50%; /* Start and end positions */
+    }
+    50% { 
+        background-position: 100% 50%; /* Middle position (full shift to the right) */
+    }
 }
 
+/* Float animation for elements like sparkles or icons */
+/* Creates a gentle up-and-down floating effect */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { 
+        transform: translateY(0px); /* Original position */
+    }
+    50% { 
+        transform: translateY(-10px); /* Move element up by 10px at midpoint */
+    }
 }

@@ -5,15 +5,20 @@ import { Link } from 'react-router-dom'
 function BookCard({ book }) {
     return (
         <section className="relative w-full">
-            {/* Reduced glow ring opacity */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-500"></div>
+            
+            {/* Glow ring effect on hover */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 
+                rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-500"></div>
 
-            <div className="relative w-full bg-white border border-amber-200/50 rounded-2xl shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500 cursor-pointer group hover:-translate-y-1">
+            {/* Main card container with shadow, border, rounded corners */}
+            <div className="relative w-full bg-white border border-amber-200/50 rounded-2xl shadow-lg 
+                hover:shadow-xl overflow-hidden transition-all duration-500 cursor-pointer group hover:-translate-y-1">
 
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none z-10"></div>
+                {/* Shimmer animation overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                    -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none z-10"></div>
 
-                {/* Image Section - Simple animation */}
+                {/* Image Section */}
                 <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 h-64 w-full overflow-hidden">
                     <img
                         src={book.image}
@@ -21,37 +26,44 @@ function BookCard({ book }) {
                         className="w-full h-64 object-fill group-hover:scale-105 transition-transform duration-500"
                     />
 
-                    {/* Dark overlay */}
+                    {/* Dark overlay to enhance readability of badges/text */}
                     <div className="absolute inset-0 bg-black/30"></div>
 
-                    {/* Category badge */}
-                    <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                    {/* Category badge (top-left corner) */}
+                    <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 
+                        text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                         {book.category_type}
                     </span>
                     
-                    {/* Newly Added badge */}
+                    {/* Newly Added badge (bottom-left corner of image) */}
                     {book.isNew && (
-                        <p className='absolute bottom-3 left-3 bg-gradient-to-r from-amber-700 to-orange-800 text-white text-xs px-2 py-1 font-bold rounded-full shadow'>
+                        <p className='absolute bottom-3 left-3 bg-gradient-to-r from-amber-700 to-orange-800 
+                            text-white text-xs px-2 py-1 font-bold rounded-full shadow'>
                             Newly Added
                         </p>
                     )}
 
-                    {/* Floating sparkle */}
-                    <div className="absolute top-4 right-4 text-yellow-300 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-[float_3s_ease-in-out_infinite]">
+                    {/* Floating sparkle for hover effect */}
+                    <div className="absolute top-4 right-4 text-yellow-300 text-xl opacity-0 
+                        group-hover:opacity-100 transition-opacity duration-500 animate-[float_3s_ease-in-out_infinite]">
                         ✨
                     </div>
                 </div>
 
-                {/* Content Section */}
+                {/* Content Section: title, author, rating, description, button */}
                 <div className="relative p-5 flex flex-col gap-2 bg-white">
 
-                    <h2 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-600 group-hover:to-orange-600 transition-all duration-300 line-clamp-1">
+                    {/* Book title with hover gradient effect */}
+                    <h2 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-transparent 
+                        group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-600 
+                        group-hover:to-orange-600 transition-all duration-300 line-clamp-1">
                         {book.title}
                     </h2>
 
+                    {/* Author */}
                     <p className="text-sm text-gray-600 font-medium">By <span className='text-amber-950'>{book.author}</span></p>
 
-                    {/* Rating with animation */}
+                    {/* Rating row with animated stars */}
                     <div className="flex items-center text-yellow-500 text-sm font-medium">
                         <span className="flex gap-0.5">
                             {[...Array(5)].map((_, i) => (
@@ -67,26 +79,35 @@ function BookCard({ book }) {
                         <span className="text-gray-600 ml-2 font-bold">{book?.rating?.toFixed(1)}</span>
                     </div>
 
+                    {/* Book description */}
                     <p className="text-sm text-gray-700 mt-1 h-10 line-clamp-2 leading-relaxed">
                         {book.description}
                     </p>
 
-                    {/* Premium button */}
+                    {/* View Details button */}
                     <Link to={`/book-details/${book.id}`}>
-                    <button className="relative mt-3 w-full text-white py-3 cursor-pointer font-bold text-sm rounded-xl shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_45px_rgba(251,191,36,0.8)] transition-shadow duration-300 overflow-hidden group/btn bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 bg-[length:200%_100%] animate-[flow_3s_ease-in-out_infinite]">
+                    <button className="relative mt-3 w-full text-white py-3 cursor-pointer font-bold text-sm 
+                        rounded-xl shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_45px_rgba(251,191,36,0.8)] 
+                        transition-shadow duration-300 overflow-hidden group/btn bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-500 
+                        bg-[length:200%_100%] animate-[flow_3s_ease-in-out_infinite]">
+                        
                         <span className="relative z-10 flex items-center justify-center gap-2">
                             View Details
                             <span className="inline-block group-hover/btn:rotate-12 transition-transform duration-300">✨</span>
                         </span>
+
+                        {/* Decorative gradients inside button */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/30"></div>
                         <div className="absolute inset-[2px] rounded-[10px] bg-gradient-to-b from-white/20 to-transparent"></div>
-                        <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 group-hover/btn:left-full transition-all duration-1000"></div>
+                        <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent 
+                            skew-x-12 group-hover/btn:left-full transition-all duration-1000"></div>
                     </button>
                     </Link>
                 </div>
 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Bottom accent line appears on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
         </section>
     )

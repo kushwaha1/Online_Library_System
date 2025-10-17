@@ -35,7 +35,7 @@
     }
 }
 
-/* Optional: floating image (soft) */
+/* floating image (soft) */
 .float-img {
     animation: float 4s ease-in-out infinite;
 }

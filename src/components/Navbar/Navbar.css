@@ -1,3 +1,4 @@
+/* Logo styling */
 .logo {
     font-family: "Playwrite US Modern", cursive;
     font-optical-sizing: auto;
@@ -6,6 +7,7 @@
     font-style: normal;
 }
 
+/* Navigation links styling */
 .navs {
     font-size: 18px;
     font-weight: 800;
@@ -15,10 +17,12 @@
     color: brown;
 }
 
+/* Hover effect for nav items */
 .navs:hover {
     color: rgb(217, 119, 6);
 }
 
+/* Active nav link styling */
 .navs.active {
     color: white;
     background-color: brown;
@@ -26,6 +30,7 @@
     border-radius: 5px;
 }
 
+/* Responsive styling for smaller screens (mobile/tablet) */
 @media (max-width: 768px) {
     .navs.active {
         display: block;
